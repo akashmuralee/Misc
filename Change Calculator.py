@@ -8,20 +8,21 @@ n=int(input())
 
 for i in range (0,n):
     print(i+1,". Enter Amount: ",end='')
-    amt=int(input())
+    amt=float(input())
     total=total+amt
     amounts.append(amt)
 
 for i in amounts:
     balance=i
     for j in denoms:
-        if balance!=0:
-            num=balance//j
-            denoms[j]=denoms[j]+num
-            balance=balance%j
+        if balance==0:
+            break
+        num=balance//j
+        denoms[j]=denoms[j]+num
+        balance=balance%j
 
 print("\n\nTOTAL AMOUNT: ",total)
 print("REQUIRED DENOMINATIONS:")
 for den in denoms:
     if denoms[den]!=0:
-        print(den,": ",denoms[den])
+        print(den,": ",int(denoms[den]))
